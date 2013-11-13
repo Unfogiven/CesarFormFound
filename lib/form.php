@@ -77,18 +77,27 @@ class form
             {
                 list($caption, $tag, $help, $alternative) = $obj->get_html();
                 if(is_array($tag)) $tag = implode("<br />", $tag);
-                echo "<tr>
-                        <td width=100 
+                switch($obj->type)
+                {
+                    case "hidden":
+                        echo $tag;
+                        break;
+                    default:
+                        echo "<tr>
+                        <td width=100
                         {$style} {$class} valign=top>{$caption}:</td>
                         <td {$style} {$class} valign=top>{$tag}</td>
                         </tr>\n";
-                if(!empty($help))
-                {
-                    echo "<tr>
-                        <td>&nbsp;</td>
-                        <td {$style} {$class} valign=top>{$help}</td>
-                    </tr>";
+                        if(!empty($help))
+                        {
+                            echo "<tr>
+                                    <td>&nbsp;</td>
+                                    <td {$style} {$class} valign=top>{$help}</td>
+                                </tr>";
+                        }
+                        break;
                 }
+
             }
         }
         echo "<tr>
