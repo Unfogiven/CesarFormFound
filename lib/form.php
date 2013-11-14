@@ -82,6 +82,11 @@ class form
                     case "hidden":
                         echo $tag;
                         break;
+                    case "title":
+                        echo "<tr>
+                            <td $style $class colspan='2' valign='top'>$tag</td>
+                        </tr>\n";
+                        break;
                     default:
                         echo "<tr>
                         <td width=100
