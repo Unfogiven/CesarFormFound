@@ -20,7 +20,7 @@ class field_title extends field
         $pattern = "#\[url\][\s]*((?=http:)[\S]*)[\s]*\[\/url\]#si";
         $tag = preg_replace($pattern, '<a href="\\1" target=_blank>\\1</a>', $tag);
         $pattern =
-        "#\[url[\s]*=[\s]*((?http:)[\S]+)[\s]*\][\s]*([^\[]*)\[/url\]#isU";
+        "#\[url[\s]*=[\s]*((?=http:)[\S]+)[\s]*\][\s]*([^\[]*)\[/url\]#isU";
         $tag = preg_replace($pattern, '<a href="\\1" target=_blank>\\2</a>', $tag);
         if(get_magic_quotes_gpc()) $tag = stripcslashes($tag);
         $tag = "<h".$this->h_type.">".$this->value."</h".$this->h_type.">";
